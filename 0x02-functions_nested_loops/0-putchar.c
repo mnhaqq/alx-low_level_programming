@@ -8,27 +8,14 @@
 
 int main(void)
 {
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
-	_putchar('\n');
+	char ch[] = "_putchar";
+	int i = 0;
 
+	while (i < 9)
+	{
+		_putchar(ch[i]);
+		i++;
+	}
+	putchar('\n');
 	return (0);
 }
-
-/**
- *_putchar - function to implement putchar
- *@c: ascii value of value to be printed
- *Return: value puthcar returns
- */
-/**
-int _putchar(int c)
-{
-	return (putchar(c));
-}
-*/
