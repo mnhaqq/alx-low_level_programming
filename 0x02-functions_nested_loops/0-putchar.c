@@ -26,8 +26,9 @@ int main(void)
  *@c: ascii value of value to be printed
  *Return: value puthcar returns
  */
-
+/**
 int _putchar(int c)
 {
 	return (putchar(c));
 }
+*/
