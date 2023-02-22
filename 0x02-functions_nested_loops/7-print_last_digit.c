@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
  *print_last_digit - fxn to print the last digit of an integer
@@ -13,6 +14,13 @@ int print_last_digit(int n)
 	if (n < 0)
 	{
 		n = n * -1;
+	}
+
+	if (n == INT_MIN)
+	{
+		_putchar('8');
+		last_digit = 8;
+		return (last_digit);
 	}
 
 	last_digit = n % 10;
