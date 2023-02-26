@@ -16,7 +16,7 @@ int main(void)
 	for (i = 2; i < 50; i++)
 	{
 		fib = curr + prev;
-		printf(",  %li", fib);
+		printf(", %li", fib);
 		prev = curr;
 		curr = fib;
 	}
