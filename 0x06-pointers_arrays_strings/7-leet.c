@@ -6,20 +6,17 @@
 
 char *leet(char *s)
 {
-	int i;
+	int i, j;
+	char alphabets[] = "AEOTL";
+	char encoded[] = "43071";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == 'A' || s[i] == 'a')
-			*(s + i) = '4';
-		else if (s[i] == 'E' || s[i] == 'e')
-			*(s + i) = '3';
-		else if (s[i] == 'O' || s[i] == 'o')
-			*(s + i) = '0';
-		else if (s[i] == 'T' || s[i] == 't')
-			*(s + i) = '7';
-		else if (s[i] == 'L' || s[i] == 'l')
-			*(s + i) = '1';
+		for (j = 0; alphabets[j] != '\0'; j++)
+		{
+			if (s[i] == alphabets[j] || s[i] - 32 == alphabets[j])
+				*(s + i) = *(encoded + j);
+		}
 	}
 	return (s);
 }
