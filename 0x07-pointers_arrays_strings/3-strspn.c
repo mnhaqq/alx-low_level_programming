@@ -7,17 +7,27 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-	int i, j, span;
+	int i, j, char_check, len_accept;
+	unsigned int span;
 
-	for (i = span = 0; accept[i] != '\0'; i++)
+	/* find length of *accept */
+	for (len_accept = 0; accept[len_accept] != '\0'; len_accept++)
+		;
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; s[j] != '\0'; j++)
-			if (accept[i] == s[j])
-			{
-				span++;
+		char_check = 0;
+		for (j = 0; accept[j] != '\0'; j++)
+		{
+			if (s[i] == accept[j])
 				break;
-			}
+			else
+				char_check += 1;
+		}
+		if (char_check == len_accept)
+			break;
 	}
-	span++;
+	span = i;
+
 	return (span);
 }
