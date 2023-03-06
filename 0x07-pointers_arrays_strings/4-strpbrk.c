@@ -2,7 +2,8 @@
  *_strpbrk - function that searhes a string for a set of bytes
  *@s: string
  *@accept: substring
- *Return: pointer to char in s that matches char in accept or NULL if no such byte is found
+ *Return: pointer to char in s that matches char in accept or NULL if no such
+ *byte is found
  */
 
 char *_strpbrk(char *s, char *accept)
@@ -14,7 +15,7 @@ char *_strpbrk(char *s, char *accept)
 		for (j = 0; accept[j] != '\0'; j++)
 		{
 			if (s[i] == accept[j])
-				return(s + i);
+				return (s + i);
 		}
 	}
 	return ('\0');
