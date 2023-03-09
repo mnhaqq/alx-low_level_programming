@@ -1,5 +1,3 @@
-int _sqrt(int, int);
-
 /**
  *_sqrt_recursion - function thatreturn square root of a number
  *@n: number
