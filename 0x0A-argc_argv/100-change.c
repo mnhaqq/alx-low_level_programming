@@ -39,32 +39,26 @@ int min_coins(int cents)
 
 	if (cents <= 0)
 		return (0);
-	if (cents / 25 > 0)
-	{
-		num_coins += cents / 25;
-		cents -= 25 * (cents / 25);
-	}
-	if (cents / 10 > 0)
-	{
-		num_coins += cents / 10;
-		cents -= 10 * (cents / 10);
-	}
-	if (cents / 5 > 0)
-	{
-		num_coins += cents / 5;
-		cents -= 5 * (cents / 5);
-	}
-	if (cents / 2 > 0)
-	{
-		num_coins += cents / 2;
-		cents -= 2 * (cents / 2);
-	}
-	if (cents / 1 > 0)
-	{
-		num_coins += cents;
-		cents -= (cents);
-	}
 
+	/* check 25 cents */
+	num_coins += cents / 25;
+	cents -= 25 * (cents / 25);
+
+	/* check 10 cents */
+	num_coins += cents / 10;
+	cents -= 10 * (cents / 10);
+
+	/* check 5 cents */
+	num_coins += cents / 5;
+	cents -= 5 * (cents / 5);
+
+	/* check 2 cents */
+	num_coins += cents / 2;
+	cents -= 2 * (cents / 2);
+
+	/* check 1 cent */
+	num_coins += cents;
+	cents -= (cents);
 
 	return (num_coins);
 }
