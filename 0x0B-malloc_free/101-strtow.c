@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+char *clean_string(char *str);
+
+char **strtow(char *str)
+{
+	char **words;
+	char *word;
+	int i, j, k, l, n;
+	if (str == NULL)
+		return (NULL);
+
+	str = clean_string(str);
+
+	for (i = k = 0; str[i] != '\0'; i++)
+	{
+		if(str[i] == ' ')
+		{
+			i++;
+			k++;
+		}
+	}
+	n = i + 2;
+	k++;
+
+	words = malloc(sizeof(char *) * k);
+	if (words == NULL)
+	{
+		free(words);
+		return (NULL);
+	}
+
+	for (i = l = 0; i < k; i++)
+	{
+		word = malloc(sizeof(words[i]) * n);
+		if (word == NULL)
+		{
+			free(words);
+			for (j = 0; j <= i; j++)
+				free(words[j]);
+			return (NULL);
+		}
+		for (j = 0; str[l] != ' ' || str[l] != '\0'; j++, l++)
+			word[j] = str[l];
+		words[i] = word;
+	}
+	return (words);
+}
+
+char *clean_string(char *str)
+{
+        char *nstr;
+	int i, j, n;
+
+	for (i = 0; str[i] == ' '; i++)
+		;
+	for (n = 0; str[i] != '\0'; i++, n++)
+	{
+		if (str[i] == ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
+			n--;
+	}
+
+	n++;
+	nstr = malloc(n);
+	if (nstr == NULL)
+		return (NULL);
+
+	for (j = 0; str[j] == ' '; j++)
+		;
+
+	for (i = 0; i < n; j++)
+	{
+		if (str[j] == ' ' && (str[j + 1] == ' ' || str[j + 1] == '\0'))
+			continue;
+
+		nstr[i] = str[j];
+		i++;
+	}
+
+	return (nstr);
+}

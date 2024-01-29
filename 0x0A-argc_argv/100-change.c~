@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int min_coins(int cents);
+
+/**
+ *main - program to print minumum number of coins needed to make change
+ *@argc: number of cl args
+ *@argv: amount of chenge to be given
+ *Return: 0 if succesful else 1
+ */
+
+int main(int argc, char *argv[])
+{
+	int output, cents;
+
+	if (argc != 2)
+	{
+		printf("Error\n");
+		return (1);
+	}
+
+	cents = atoi(argv[1]);
+	output = min_coins(cents);
+	printf("%d\n", output);
+
+	return (0);
+}
+
+int min_coins(int cents)
+{
+	int num_coins = 0;
+
+	if (cents <= 0)
+		return (0);
+	if (cents / 25 > 0)
+	{
+		num_coins += cents / 25;
+		cents -= 25 * (cents / 25);
+	}
+	if (cents / 10 > 0)
+	{
+		num_coins += cents / 10;
+		cents -= 10 * (cents / 10);
+	}
+	if (cents / 5 > 0)
+	{
+		num_coins += cents / 5;
+		cents -= 5 * (cents / 5);
+	}
+	if (cents / 2 > 0)
+	{
+		num_coins += cents / 2;
+		cents -= 2 * (cents / 2);
+	}
+	if (cents / 1 > 0)
+	{
+		num_coins += cents;
+		cents -= (cents);
+	}
+
+
+	return (num_coins);
+}
